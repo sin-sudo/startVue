@@ -2,17 +2,21 @@
   <div>
     <label for="content"></label>
     <div class="form-group">
-      <label for="content">独り言</label>
-      <textarea class="form-control" id="content" rows="3" v-model='content'></textarea>
+      <CreateContent @addtion='addtion'></CreateContent>
     </div>
   </div>
 </template>
 
 <script>
+import CreateContent from './CreateContent';
+
   export default {
-    data: function() {
-      return {
-        content: '',
+    components: {
+      CreateContent,
+    },
+    methods: {
+      addtion(value) {
+        this.$emit('addtion', value)
       }
     }
   }
